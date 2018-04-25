@@ -1,0 +1,804 @@
+/**
+ ******************************************************************************
+ * \file c1219.h
+ ******************************************************************************
+ * <hr><br>
+ * <b>&copy; Copyright 2016 by Eos Tech S. de A. de C.V. All rights reserved.</b><br><br>
+ * Eos Tech Confidential.
+ *
+ * <hr>
+ ******************************************************************************
+ *
+ * @defgroup File content title
+ * @section DESCRIPTION DESCRIPTION:
+ *
+ * File content description.
+ *
+ * @section TEMPLATE_REVISION TEMPLATE REVISION:
+ *   - Format: F_P06-DP_13
+ *   - Revision: 01
+ *   - Date: 1/OCT/2016
+ *   - Author: Mariano Centeno Camarena.
+ ******************************************************************************
+ *
+ * @defgroup C1219 C1219 Library
+ * @section DESCRIPTION DESCRIPTION:
+ *
+ * This file contains all standard code file functions for C1219 Library.
+ *
+ * @section TEMPLATE_REVISION TEMPLATE REVISION:
+ *   - Format: F_P06-DP_13
+ *   - Revision: 01
+ *   - Date: 1/OCT/2016
+ *   - Author: Mariano Centeno Camarena.
+ ******************************************************************************
+ *
+ * @defgroup File change log
+ * @section FILE_CHANGE_LOG FILE CHANGE LOG:
+ *
+ * Top to bottom log: last revision to first revision.
+ *
+ ******************************************************************************
+ * - Revision 01 / Jacob Anaya Candia / 2016-12-21
+ *   - Change 1:  PCR#: Description.
+ *   - Change 2:  PCR#: Description.
+ ******************************************************************************
+ */
+#ifndef C1219_H
+#define C1219_H
+
+/*
+ ******************************************************************************
+ * Include Header Files                                                     
+ ******************************************************************************
+ */
+#include "util.h"
+#include "c1218.h"
+#include "secr.h"
+ 
+/*
+ ******************************************************************************
+ * Constant Definitions using #define
+ ******************************************************************************
+*/
+#define NBR_C1219_INSTANCES								4
+#define MAX_C1218_APL_SIZE								6000
+#define MAX_CONFIGURATION_TABLE_SIZE					600
+
+/*---------------------------------------------------------------------------*\
+ * C12.19 STANDARD TABLES
+ *
+ * Tables whose specific definition is included in an ANSI standard such as 
+ * C12.19. Active standard tables must have zeros in bits 11 and 12 of the 
+ * table identifier. Standard tables are referenced in the form “ST_n” where
+ * “n” is the table number.
+\*---------------------------------------------------------------------------*/
+
+/*===========================================================================*\
+ * ST_0: General Configuration Table
+\*===========================================================================*/
+#define ST_0_ID											0
+#define ST_0_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_1: General Manufacturer Identification Table
+\*===========================================================================*/
+#define ST_1_ID											1
+#define ST_1_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_2: Device Nameplate Table
+\*===========================================================================*/
+#define ST_2_ID											2
+#define ST_2_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST:3 End Device Mode Status Table
+\*===========================================================================*/
+#define ST_3_ID											3
+#define ST_3_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_6: Procedure response
+\*===========================================================================*/
+#define ST_6_ID											6
+#define ST_6_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_7: Procedure initiate
+\*===========================================================================*/
+#define ST_7_ID											7
+#define ST_7_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_8: Procedure response
+\*===========================================================================*/
+#define ST_8_ID											8
+#define ST_8_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_10: Data Source Dimension Limits Table
+\*===========================================================================*/
+#define ST_10_ID										10
+#define ST_10_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_11: Actual Data Sources Limiting Table
+\*===========================================================================*/
+#define ST_11_ID										11
+#define ST_11_WRITE										TRUE
+																	
+/*===========================================================================*\
+ * ST_12: Units of Measure Entry Table
+\*===========================================================================*/
+#define ST_12_ID										12
+#define ST_12_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_13: Demand Control Table
+\*===========================================================================*/
+#define ST_13_ID										13
+#define ST_13_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_15: Demand Control Table
+\*===========================================================================*/
+#define ST_15_ID										15
+#define ST_15_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_16: Source Definition Table
+\*===========================================================================*/
+#define ST_16_ID										16
+#define ST_16_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_20: Register Dimension Limits Table
+\*===========================================================================*/
+#define ST_20_ID										20
+#define ST_20_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_21: Actual Register Limiting Table
+\*===========================================================================*/
+#define ST_21_ID										21
+#define ST_21_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_22: Data Selection Table
+\*===========================================================================*/
+#define ST_22_ID										22
+#define ST_22_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_23: Current Register Data Table
+\*===========================================================================*/
+#define ST_23_ID										23
+#define ST_23_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_24: Previous Season Data Table
+\*===========================================================================*/
+#define ST_24_ID										24
+#define ST_24_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_25: Previous Demand Reset Data Table
+\*===========================================================================*/
+#define ST_25_ID										25
+#define ST_25_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_26: Self-read Data Table
+\*===========================================================================*/
+#define ST_26_ID										26
+#define ST_26_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_27: Present Register Selection Table
+\*===========================================================================*/
+#define ST_27_ID										27
+#define ST_27_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_28: Present Register Data Table
+\*===========================================================================*/
+#define ST_28_ID										28
+#define ST_28_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_40: Security Dimension Limits Table
+\*===========================================================================*/
+#define ST_40_ID										40
+#define ST_40_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_41: Actual Security Limiting Table
+\*===========================================================================*/
+#define ST_41_ID										41
+#define ST_41_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_42: Security Table
+\*===========================================================================*/
+#define ST_42_ID										42
+#define ST_42_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_43: Default Access Control Table
+\*===========================================================================*/
+#define ST_43_ID										43
+#define ST_43_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_44: Default Access Control Table
+\*===========================================================================*/
+#define ST_44_ID										44
+#define ST_44_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_50: Dimension Time and TOU Table
+\*===========================================================================*/
+#define ST_50_ID										50
+#define ST_50_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_51: Actual Time and TOU Table
+\*===========================================================================*/
+#define ST_51_ID										51
+#define ST_51_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_52: Clock Table
+\*===========================================================================*/
+#define ST_52_ID										52
+#define ST_52_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_53: Time Offset Table
+\*===========================================================================*/
+#define ST_53_ID										53
+#define ST_53_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_54: Calendar Table
+\*===========================================================================*/
+#define ST_54_ID										54
+#define ST_54_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_55: Clock State Table
+\*===========================================================================*/
+#define ST_55_ID										55
+#define ST_55_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_60: Load Profile Dimension Limits Table
+\*===========================================================================*/
+#define ST_60_ID										60
+#define ST_60_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_61: Actual Load Profile Limiting Table
+\*===========================================================================*/
+#define ST_61_ID										61
+#define ST_61_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_62: Load Profile Control Table
+\*===========================================================================*/
+#define ST_62_ID										62
+#define ST_62_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_63: Load Profile Status Table
+\*===========================================================================*/
+#define ST_63_ID										63
+#define ST_63_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST-64: Load Profile Status Table
+\*===========================================================================*/
+#define ST_64_ID										64
+#define ST_64_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_70: Log Dimension Limits Table
+\*===========================================================================*/
+#define ST_70_ID										70
+#define ST_70_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_71: Actual Log Limiting Table
+\*===========================================================================*/
+#define ST_71_ID										71
+#define ST_71_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_72: Events Identification Table
+\*===========================================================================*/
+#define ST_72_ID										72
+#define ST_72_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_73: History Log Control Table
+\*===========================================================================*/
+#define ST_73_ID										73
+#define ST_73_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_74: History Log Data Table
+\*===========================================================================*/
+#define ST_74_ID										74
+#define ST_74_WRITE										FALSE
+
+/*===========================================================================*\
+ * ST_75: Event Log Control Table
+\*===========================================================================*/
+#define ST_75_ID										75
+#define ST_75_WRITE										TRUE
+
+/*===========================================================================*\
+ * ST_76: Event Log Data Table
+\*===========================================================================*/
+#define ST_76_ID										76
+#define ST_76_WRITE										FALSE
+
+/*---------------------------------------------------------------------------*\
+ * C12.19 MANUFACTURER TABLES
+ *
+ * Tables whose specific content is determined by the device manufacturer. 
+ * Active manufacturers tables have a 1 in bit 11 and a 0 in bit 12 of the table
+ * identifier. 
+ * Manufacturers tables are referenced in the form “MT_n” where “n” is the table 
+ * number (not including bits 11 and 12).
+\*---------------------------------------------------------------------------*/
+										
+/*===========================================================================*\
+ * MT_1: NET 50 Specific Product Identification
+\*===========================================================================*/
+#define MT_1_ID											0x800 + 1
+#define MT_1_WRITE										TRUE
+
+/*===========================================================================*\
+ * MT_3: Manufacturer Configuration Table
+\*===========================================================================*/
+#define MT_3_ID											0x800 + 3
+#define MT_3_WRITE										TRUE
+
+/*===========================================================================*\
+ * MT_4: MCU Trouble Data
+\*===========================================================================*/
+#define MT_4_ID											0x800 + 4
+#define MT_4_WRITE										TRUE
+
+/*===========================================================================*\
+ * MT_5: Table Integrity Data
+\*===========================================================================*/
+#define MT_5_ID											0x800 + 5
+#define MT_5_WRITE										TRUE
+
+/*===========================================================================*\
+ * MT_22: Present Register Data (BCD Format)
+\*===========================================================================*/
+#define MT_22_ID										0x800 + 22
+#define MT_22_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_23: Present Register Status Table
+\*===========================================================================*/
+#define MT_23_ID										0x800 + 23
+#define MT_23_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_24: DSP Accumulated Quantities
+\*===========================================================================*/
+#define MT_24_ID										0x800 + 24
+#define MT_24_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_25: DSP Calibration Constants Register
+\*===========================================================================*/
+#define MT_25_ID										0x800 + 25
+#define MT_25_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_53: Time Offset Data
+\*===========================================================================*/
+#define MT_53_ID										0x800 + 53
+#define MT_53_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_72: Events Identification Table
+\*===========================================================================*/
+#define MT_72_ID										0x800 + 72
+#define MT_72_WRITE										FALSE
+
+/*===========================================================================*\
+ * MT_73: Alarms Control Table
+\*===========================================================================*/
+#define MT_73_ID										0x800 + 73
+#define MT_73_WRITE										TRUE
+
+/*===========================================================================*\
+ * MT_202: Image Data Table
+\*===========================================================================*/
+#define MT_202_ID										0x0800 + 202 
+#define MT_202_WRITE									TRUE
+
+/*---------------------------------------------------------------------------*\
+ * C12.19 STANDARD PROCEDURES
+ *
+ * Procedures whose specific definition is included in an ANSI standard such 
+ * as C12.19. Standard procedures must have a zero in bit 11 of the procedure 
+ * identifier. Standard procedures are referenced in the form “SP_n” where “n” 
+ * is the procedure number. 
+\*---------------------------------------------------------------------------*/
+
+/*===========================================================================*\
+ * SP_0: Cold Start
+\*===========================================================================*/
+#define SP_0_ID									0
+#define SP_0_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * SM_100 SP-1 definition (Warm Start)
+\*===========================================================================*/
+#define SP_1_ID									1
+#define SP_1_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * SM_100 SP-3 definition (Clear Data)
+\*===========================================================================*/
+#define SP_3_ID									3
+#define SP_3_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * SP_5. Update Last Read Entry
+\*===========================================================================*/
+#define SP_5_ID									5
+#define SP_5_PARAMETERS_SIZE					3
+
+#define SP_5_LIST_INDEX							PROCEDURE_PARAMETER_INDEX + 0
+#define SP_5_ENTRIES_READ_INDEX					PROCEDURE_PARAMETER_INDEX + 1
+
+#define RESERVED								(uint8_t) 0
+#define EVENT_LOG_TBL							(uint8_t) 1
+#define SELF_READ_DATA_TBL						(uint8_t) 2
+#define LP_DATA_SET1_TBL						(uint8_t) 3
+#define LP_DATA_SET2_TBL						(uint8_t) 4
+#define LP_DATA_SET3_TBL						(uint8_t) 5
+#define LP_DATA_SET4_TBL						(uint8_t) 6
+#define LP_DATA_SET_1_2_3_4_TBL					(uint8_t) 7
+#define HISTORY_LOG_TBL							(uint8_t) 8
+#define QUALITY_LOG_TBL							(uint8_t) 9
+#define TD_ASYNC_TBL							(uint8_t) 10
+#define FD_ASYNC_TBL							(uint8_t) 11
+#define TIME_DOMAIN_TBL							(uint8_t) 12
+#define FD_SPECTRA_TBL							(uint8_t) 13
+#define ALL_LIST_NO_EVENT_LOG_TBL				(uint8_t) 255
+
+/*===========================================================================*\
+ * SM_100 SP-6 definition (Change End Device Mode)
+\*===========================================================================*/
+#define SP_6_ID									6
+#define SP_6_PARAMETERS_SIZE					1
+
+/*===========================================================================*\
+ * SP_7. Clear Standard Status Flags
+\*===========================================================================*/
+#define SP_7_ID									7
+#define SP_7_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * SP_8. Clear Manufacturer Status Flags
+\*===========================================================================*/
+#define SP_8_ID									8
+#define SP_8_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * SP_9. Remote Reset
+\*===========================================================================*/
+#define SP_9_ID									9
+#define SP_9_PARAMETERS_SIZE					1
+
+#define SP_9_DEMAND_RESET_FLAG_bm				0b00000001
+#define SP_9_DEMAND_RESET_FLAG_bp				0
+#define SP_9_SELF_READ_FLAG_bm					0b00000010
+#define SP_9_SELF_READ_FLAG_bp					1
+#define SP_9_SEASON_CHANGE_FLAG_bm				0b00000100
+#define SP_9_SEASON_CHANGE_FLAG_bp				2
+#define SP_9_NEW_SEASON_bm						0b01111000
+#define SP_9_NEW_SEASON_bp						3
+
+#define SP_9_ACTION_FLAG_INDEX_bm				PROCEDURE_PARAMETER_INDEX + 0
+
+/*===========================================================================*\
+ * SP-10: Set Date and/or Time
+\*===========================================================================*/
+#define SP_10_ID								10
+#define SP_10_PARAMETERS_SIZE					6
+
+#define SET_MASK_INDEX							PROCEDURE_PARAMETER_INDEX + 0
+#define SET_MASK_BM								0b00000111
+#define SET_TIME_BM								0b00000001
+#define SET_DATE_BM								0b00000010
+#define SET_TIME_DATE_QUAL_BM					0b00000100
+#define TIMESTAMP_INDEX							PROCEDURE_PARAMETER_INDEX + 1
+#define TIME_DATE_QUAL_INDEX					PROCEDURE_PARAMETER_INDEX + 5
+#define DST_FLAG_BM								0b00001000
+#define DST_FLAG_BP								3
+#define GMT_FLAG_BM								0b00010000
+#define GMT_FLAG_BP								4
+#define TM_ZN_APPLIED_FLAG_BM					0b00100000
+#define TM_ZN_APPLIED_FLAG_BP					5
+#define DST_APPLIED_FLAG_BM						0b01000000
+#define DST_APPLIED_FLAG_BP						6
+#define DST_SUPPORTED_FLAG_BM					0b10000000
+#define DST_SUPPORTED_FLAG_BP					7
+
+/*===========================================================================*\
+ * SP_11: Diagnostic procedure
+\*===========================================================================*/
+#define SP_11_ID								11
+#define SP_11_PARAMETERS_SIZE					0
+
+#define MAX_NBR_TABLES_UNPROGRAMMED				22
+
+/*---------------------------------------------------------------------------*\
+ * C12.19 MANUFACTURER PROCEDURES
+ *
+ * Procedures whose specific content and actions are determined by the device 
+ * manufacturer. Manufacturer procedures have a 1 in bit 11 of the procedure 
+ * identifier. Manufacturer procedures are referenced in this document in the 
+ * form “MP_n” where “n” is the procedure number (not including bits 11 and 12).
+\*---------------------------------------------------------------------------*/
+
+/*===========================================================================*\
+ * MP_6: End Device Test Mode Period
+\*===========================================================================*/
+#define MP_6_ID								    0x800 + 6				
+#define MP_6_PARAMETERS_SIZE					1
+
+/*===========================================================================*\
+ * MP_9: Energy Reset
+\*===========================================================================*/
+#define MP_9_ID									0x800 + 9
+#define MP_9_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_100: Change End Device to Boot Mode
+\*===========================================================================*/
+#define MP_100_ID								0x800 + 100					
+#define MP_100_PARAMETERS_SIZE					0
+
+#define BOOT_MODE                               (uint32_t)0xAAAAAAAA
+#define METER_MODE                              (uint32_t)0xFFFFFFFF
+#define REFLASH_MODE                            (uint32_t)0x55555555
+
+#define TOTAL_IMAGE_SECTOR_SIZE                 (0x30000)
+
+/*===========================================================================*\
+ * MP_101: Change Constant Kt
+\*===========================================================================*/
+#define MP_101_ID								0x800 + 101
+#define MP_101_PARAMETERS_SIZE					4
+
+/*===========================================================================*\
+ * MP_102: Change Energy Pulse Mode
+\*===========================================================================*/
+#define MP_102_ID								0x800 + 102
+#define MP_102_PARAMETERS_SIZE					1
+
+#define MP_102_KWH_MODE							0
+#define MP_102_KVARH_MODE						1
+
+/*===========================================================================*\
+ * MP_103: Change Voltage Level Threshold
+\*===========================================================================*/
+#define MP_103_ID								0x800 + 103
+#define MP_103_PARAMETERS_SIZE					8
+
+#define SET_LOW_VOLTAGE_INDEX					PROCEDURE_PARAMETER_INDEX + 0
+#define SET_HIGH_VOLTAGE_INDEX					PROCEDURE_PARAMETER_INDEX + 4
+
+/*===========================================================================*\
+ * MP_104: Change Time Level Threshold for Voltage Monitor
+\*===========================================================================*/
+#define MP_104_ID								0x800 + 104
+#define MP_104_PARAMETERS_SIZE					2
+
+/*===========================================================================*\
+ * MP_105: Configuration Mode
+\*===========================================================================*/
+#define MP_105_ID								0x800 + 105
+#define MP_105_PARAMETERS_SIZE					1
+
+#define MP_105_DISABLE_CONF_MODE				0
+#define MP_105_ENABLE_CONF_MODE					1
+
+/*===========================================================================*\
+ * MP_110: Change End Device to Boot Mode
+\*===========================================================================*/
+#define MP_110_ID								0x800 + 110
+#define MP_110_PARAMETERS_MIN_SIZE	1
+#define MP_110_PARAMETERS_MAX_SIZE	5
+
+#define CALIBRATION_CONSTANT_SELECT_INDEX		PROCEDURE_PARAMETER_INDEX + 0
+#define CALIBRATION_CONSTANT_VALUE_INDEX		PROCEDURE_PARAMETER_INDEX + 1
+
+#define ADJUST_M_IA_ID							0
+#define ADJUST_M_VA_ID							1
+#define ADJUST_PH_IA_ID							2
+#define AUTO_ADJUST_M_IA_ID						3
+#define AUTO_ADJUST_M_VA_ID						4
+#define AUTO_ADJUST_PH_IA_ID					5
+#define ADJUST_M_IB_ID							6
+#define ADJUST_M_VB_ID							7
+#define ADJUST_PH_IB_ID							8
+#define AUTO_ADJUST_M_IB_ID						9
+#define AUTO_ADJUST_M_VB_ID						10
+#define AUTO_ADJUST_PH_IB_ID					11
+#define ADJUST_M_IC_ID							12
+#define ADJUST_M_VC_ID							13
+#define ADJUST_PH_IC_ID							14
+#define AUTO_ADJUST_M_IC_ID						15
+#define AUTO_ADJUST_M_VC_ID						16
+#define AUTO_ADJUST_PH_IC_ID					17
+
+/*===========================================================================*\
+ * MP_111: Back Up Calibration Constant
+\*===========================================================================*/
+#define MP_111_ID								0x800 + 111
+#define MP_111_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_112: Restore Calibration Constant
+\*===========================================================================*/
+#define MP_112_ID								0x800 + 112
+#define MP_112_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_113: Load Calibration Constants Default Values
+\*===========================================================================*/
+#define MP_113_ID								0x800 + 113
+#define MP_113_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_120: Back up Configuration Table
+\*===========================================================================*/
+#define MP_120_ID								0x800 + 120
+#define MP_120_PARAMETERS_SIZE					3
+
+#define MP_120_MCP_AREA							0
+#define MP_120_CCP_AREA							1
+
+/*===========================================================================*\
+ * MP_121: Restore Configuration Table
+\*===========================================================================*/
+#define MP_121_ID								0x800 + 121
+#define MP_121_PARAMETERS_SIZE					3
+
+/*===========================================================================*\
+ * MP_122: Load Configuration Table Default Values
+\*===========================================================================*/
+#define MP_122_ID								0x800 + 122
+#define MP_122_PARAMETERS_SIZE					2
+
+#define TABLE_ID_INDEX							PROCEDURE_PARAMETER_INDEX + 0
+
+/*===========================================================================*\
+ * MP_123: Back up All Configuration Tables
+\*===========================================================================*/
+#define MP_123_ID								0x800 + 123
+#define MP_123_PARAMETERS_SIZE					1
+
+/*===========================================================================*\
+ * MP_124: Restore All Configuration Tables
+\*===========================================================================*/
+#define MP_124_ID								0x800 + 124
+#define MP_124_PARAMETERS_SIZE					1
+
+/*===========================================================================*\
+ * MP_125: Load All Configuration Tables Default Values
+\*===========================================================================*/
+#define MP_125_ID								0x800 + 125
+#define MP_125_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_126: Erase External Memory Data
+\*===========================================================================*/
+#define MP_126_ID								0x800 + 126
+#define MP_126_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_130: Test 2 EEPROM target
+\*===========================================================================*/
+#define MP_130_ID								0x800 + 130
+#define MP_130_PARAMETERS_SIZE					0
+
+#define TEST_BYTE								0xAA
+
+#define EEPROM_1_BM								0b00000001
+#define EEPROM_2_BM								0b00000010
+#define EEPROM_TEST_SUCCESFULL					0x03
+
+/*===========================================================================*\
+ * MP_150: Flash Image CRC Calculation
+\*===========================================================================*/
+#define MP_150_ID								0x800 + 150
+#define MP_150_PARAMETERS_SIZE					0
+
+/*===========================================================================*\
+ * MP_200: Image Initiation Process
+\*===========================================================================*/
+#define MP_200_ID								0x800 + 200
+#define MP_200_PARAMETERS_SIZE					15
+
+/*===========================================================================*\
+ * MP_201: Image Activation Process
+\*===========================================================================*/
+#define MP_201_ID								0x800 + 201
+#define MP_201_PARAMETERS_SIZE					15
+				  
+/*
+ ******************************************************************************
+ * Macro Definitions using #define
+ ******************************************************************************
+*/
+
+/*===========================================================================*\
+ * Brief description for each block of Macro definitions
+\*===========================================================================*/
+
+/*
+ ******************************************************************************
+ * Enumerations and Structures and Typedefs
+ ******************************************************************************
+*/
+
+/*===========================================================================*\
+ * C1219 Services Structure
+\*===========================================================================*/
+typedef struct {
+	
+	bool busy_instance;
+
+	/* Information that requester device provides */
+	C1218_DLL_TYPE *c1218_dll;
+	C1218_APL_TYPE c1218_apl;
+	uint16_t table_id;
+	uint32_t offset;
+	uint32_t count;
+	
+	/* Information to be obtained */
+	uint16_t table_size;
+	uint8_t table_data[MAX_C1218_APL_SIZE];
+	bool (*execute_table_reading)(uint8_t*);
+	bool (*execute_table_writing)(uint8_t*);
+
+} C1219_TYPE;
+
+/*
+ ******************************************************************************
+ * Global Variables and Const Variables using extern declaration.
+ ******************************************************************************
+ */
+ extern C1219_TYPE c1219[NBR_C1219_INSTANCES];
+
+/*
+ ******************************************************************************
+ * Global Function Definitions using extern declaration.
+ ******************************************************************************
+*/
+extern void C1219_full_read_service(C1218_DLL_TYPE *c1218_dll_ptr, C1218_APL_TYPE c1218_apl);
+extern void C1219_pread_offset_service(C1218_DLL_TYPE *c1218_dll_ptr, C1218_APL_TYPE c1218_apl);
+extern void C1219_full_write_service(C1218_DLL_TYPE *c1218_dll_ptr, C1218_APL_TYPE c1218_apl);
+extern void C1219_pwrite_offset_service(C1218_DLL_TYPE *c1218_dll_ptr, C1218_APL_TYPE c1218_apl);
+
+/*
+ ******************************************************************************
+ * End of file
+ ******************************************************************************
+ */
+ #endif
