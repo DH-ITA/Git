@@ -79,9 +79,9 @@ __attribute__ ((section(".end_of_app"))) const uint8_t end_of_app[11] =
 	(const uint8_t)0x45, 						// "E"
 	(const uint8_t)0x4E, 						// "N"
 	(const uint8_t)0x44, 						// "D"
-	(const uint8_t)0x60, 						// "A"
-	(const uint8_t)0x60, 						// "P"
-	(const uint8_t)0x60, 						// "P"
+	(const uint8_t)0x80, 						// "A"
+	(const uint8_t)0x80, 						// "P"
+	(const uint8_t)0x80, 						// "P"
 	(const uint8_t)0x00,						//
 	(const uint8_t)( (APP_CRC & 0x00FF) >> 0),	// CRC Low
 	(const uint8_t)( (APP_CRC & 0xFF00) >> 8)	// CRC High
