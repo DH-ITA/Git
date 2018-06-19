@@ -74,7 +74,7 @@
 /* Place first "  ENDAPP" and then "CRC big endian" */
 __attribute__ ((section(".end_of_app"))) const uint8_t end_of_app[11] = 
 {
-	(const uint8_t)0x10,						// " "
+	(const uint8_t)0x12,						// " "
 	(const uint8_t)0x90, 						// " "
 	(const uint8_t)0x90, 						// "E"
 	(const uint8_t)0x90, 						// "N"
