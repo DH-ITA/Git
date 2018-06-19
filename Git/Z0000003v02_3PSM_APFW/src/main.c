@@ -76,9 +76,9 @@ __attribute__ ((section(".end_of_app"))) const uint8_t end_of_app[11] =
 {
 
 	(const uint8_t)0x16,						// " "
-	(const uint8_t)0x90, 						// " "
-	(const uint8_t)0x90, 						// "E"
-	(const uint8_t)0x90, 						// "N"
+	(const uint8_t)0x16, 						// " "
+	(const uint8_t)0x16, 						// "E"
+	(const uint8_t)0x16, 						// "N"
 	(const uint8_t)0x90, 						// "D"
 	(const uint8_t)0x80, 						// "A"
 	(const uint8_t)0x80, 						// "P"
@@ -97,7 +97,7 @@ __attribute__ ((section(".end_of_app"))) const uint8_t end_of_app[11] =
 
 /*
  ******************************************************************************
- * Constant and Macro Definitions using #define
+  Constant and Macro Definitions using #define
  ******************************************************************************
  */
 
