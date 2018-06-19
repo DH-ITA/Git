@@ -52,9 +52,6 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: ADC - Analog-to-digital Converter
-#include <adc.h>
-
 // From module: Common SAM compiler driver
 #include <compiler.h>
 #include <status_codes.h>
@@ -62,14 +59,17 @@
 // From module: Common build items for user board support templates
 #include <user_board.h>
 
-// From module: Delay routines
-#include <delay.h>
+// From module: Display - ILI93xx LCD Controller
+#include <ili9325_regs.h>
+#include <ili9341_regs.h>
+#include <ili93xx.h>
 
-// From module: EEFC - Enhanced Embedded Flash Controller
-#include <efc.h>
+// From module: FIFO - First-In-First-Out circular buffer
+#include <fifo.h>
 
-// From module: Flash - SAM Flash Service API
-#include <flash_efc.h>
+// From module: FreeRTOS - PDC Interface Layer
+#include <freertos_peripheral_control.h>
+#include <freertos_peripheral_control_private.h>
 
 // From module: FreeRTOS mini Real-Time Kernel
 #include <FreeRTOS.h>
@@ -85,23 +85,14 @@
 #include <task.h>
 #include <timers.h>
 
-// From module: GPIO - General purpose Input/Output
-#include <gpio.h>
-
 // From module: Generic board support
 #include <board.h>
 
-// From module: IOPORT - General purpose I/O service
-#include <ioport.h>
-
-// From module: IPC - Interprocessor Communication
-#include <ipc.h>
-
-// From module: Integrity Check Monitor driver
-#include <icm.h>
-
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
+
+// From module: MEMBAG Memory Bag Allocator
+#include <membag.h>
 
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
@@ -109,65 +100,19 @@
 // From module: PDC - Peripheral DMA Controller Example
 #include <pdc.h>
 
-// From module: PIO - Parallel Input/Output Controller
-#include <pio.h>
-
-// From module: PMC - Power Management Controller
-#include <pmc.h>
-#include <sleep.h>
+// From module: PLC PRIME CRC calculation service
+#include <pcrc.h>
 
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: RSTC - Reset Controller
-#include <rstc.h>
-
-// From module: RTC - Real Time Clock
-#include <rtc.h>
-
-// From module: RTT - Real Time Timer
-#include <rtt.h>
-
-// From module: SMC - Static Memory Controller
-#include <smc.h>
-
-// From module: SUPC - Supply Controller
-#include <supc.h>
-
-// From module: Sleep manager - SAM implementation
-#include <sam/sleepmgr.h>
-#include <sleepmgr.h>
-
-// From module: Standard serial I/O (stdio) - SAM implementation
-#include <stdio_serial.h>
-
-// From module: System Clock Control - SAM4CM implementation
-#include <sysclk.h>
-
 // From module: TC - Timer Counter
 #include <tc.h>
-
-// From module: TWI - Two-Wire Interface - SAM implementation
-#include <sam_twi/twi_master.h>
-#include <sam_twi/twi_slave.h>
-#include <twi_master.h>
-#include <twi_slave.h>
-
-// From module: TWI - Two-wire Interface
-#include <twi.h>
-
-// From module: UART - Univ. Async Rec/Trans
-#include <uart.h>
-
-// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
-#include <serial.h>
 
 // From module: USART - Univ. Syn Async Rec/Trans
 #include <usart.h>
 
-// From module: WDT - Watchdog Timer
-#include <wdt.h>
-
-// From module: pio_handler support enabled
+// From module: Virtual Memory in RAM
+#include <virtual_mem.h>
 
 #endif // ASF_H

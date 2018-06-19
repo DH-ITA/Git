@@ -2,10 +2,10 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>7.0</ProjectVersion>
+    <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
     <ProjectGuid>{339352e9-e2e8-40d2-95ec-5fa87c28d31c}</ProjectGuid>
-    <avrdevice>ATSAM4CMP16C:0</avrdevice>
+    <avrdevice>ATSAM4C16C:0</avrdevice>
     <avrdeviceseries>sam4cm</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
@@ -13,7 +13,7 @@
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AssemblyName>EX001500-01_MM100(clk_init)</AssemblyName>
-    <Name>PR00XXXXv01_3PH_APPFW</Name>
+    <Name>PR001182v13_MM100_APFW</Name>
     <RootNamespace>EX001500-01_MM100(clk_init)</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
@@ -283,7 +283,7 @@
         <documentation help="http://asf.atmel.com/docs/3.22.0/common.applications.user_application.user_board.sam4cmp16c_0/html/index.html" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.28.1" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.20.1" />
         </dependencies>
         <project id="common.applications.user_application.user_board.sam4cmp16c_0" value="Add" config="" content-id="Atmel.ASF" />
         <board id="board.user_board.sam4cmp16c_0" value="Add" config="" content-id="Atmel.ASF" />
@@ -293,7 +293,7 @@
     <com_atmel_avrdbg_tool_samice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>4000000</JtagDbgClock>
+          <JtagDbgClock>0</JtagDbgClock>
           <JtagEnableExtResetOnStartSession>true</JtagEnableExtResetOnStartSession>
           <JtagInChain>false</JtagInChain>
           <JtagDevicesBefore>0</JtagDevicesBefore>
@@ -309,363 +309,357 @@
         <JlinkConfigFile>C:\Users\2015_usuario07\Dropbox\Softek\MM100\PR001182v11_MM100_APFW\PR001182v11_MM100_APFW\jlink.config</JlinkConfigFile>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
-      <ToolNumber>28018833</ToolNumber>
+      <ToolNumber>28019600</ToolNumber>
       <ToolName>SAM-ICE</ToolName>
     </com_atmel_avrdbg_tool_samice>
     <avrtoolinterface>JTAG</avrtoolinterface>
     <preserveEEPROM>true</preserveEEPROM>
-    <avrtoolserialnumber>28018833</avrtoolserialnumber>
-    <avrdeviceexpectedsignature>0xA64C0CE2</avrdeviceexpectedsignature>
-    <avrtoolinterfaceclock>4000000</avrtoolinterfaceclock>
-    <ResetRule>0</ResetRule>
-    <EraseKey />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <ArmGcc>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>scanf=iscanf</Value>
-      <Value>BOARD=USER_BOARD</Value>
-      <Value>ARM_MATH_CM4=true</Value>
-      <Value>printf=iprintf</Value>
-      <Value>__FREERTOS__</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>../common/applications/user_application/user_board/config</Value>
-      <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/preprocessor</Value>
-      <Value>../src/config</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/header_files</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/common/boards/user_board</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/common/services/storage/ctrl_access</Value>
-      <Value>../src/ASF/sam/drivers/chipid</Value>
-      <Value>../src/ASF/sam/drivers/cmcc</Value>
-      <Value>../src/ASF/sam/drivers/ebi/smc</Value>
-      <Value>../src/ASF/sam/drivers/efc</Value>
-      <Value>../src/ASF/sam/drivers/gpbr</Value>
-      <Value>../src/ASF/sam/drivers/icm</Value>
-      <Value>../src/ASF/sam/drivers/ipc</Value>
-      <Value>../src/ASF/sam/drivers/matrix</Value>
-      <Value>../src/ASF/sam/drivers/pdc</Value>
-      <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
-      <Value>../src/ASF/sam/drivers/pio</Value>
-      <Value>../src/ASF/sam/drivers/pmc</Value>
-      <Value>../src/ASF/sam/drivers/rstc</Value>
-      <Value>../src/ASF/sam/drivers/rtt</Value>
-      <Value>../src/ASF/sam/drivers/supc</Value>
-      <Value>../src/ASF/sam/drivers/tc</Value>
-      <Value>../src/ASF/sam/drivers/uart</Value>
-      <Value>../src/ASF/sam/services/flash_efc</Value>
-      <Value>../src/ASF/sam/services/plc/buart_if</Value>
-      <Value>../src/ASF/sam/services/plc/busart_if</Value>
-      <Value>../src/ASF/sam/services/plc/pcrc</Value>
-      <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
-      <Value>../src/ASF/sam/services/plc/usi</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
-      <Value>../src/ASF/common/services/clock</Value>
-      <Value>../src/ASF/common/services/delay</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src/ASF/common/services/serial/sam_uart</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/common/services/sleepmgr</Value>
-      <Value>../src/ASF/common/services/spi/sam_spi</Value>
-      <Value>../src/ASF/common/services/spi</Value>
-      <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
-      <Value>../src/ASF/common/services/twi</Value>
-      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/sam/drivers/adc</Value>
-      <Value>../src/ASF/sam/drivers/spi</Value>
-      <Value>../src/ASF/sam/drivers/twi</Value>
-      <Value>../src/ASF/sam/drivers/usart</Value>
-      <Value>../src/ASF/sam/drivers/wdt</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam/drivers/rtc</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
-  <armgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libarm_cortexM4l_math</Value>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>../cmsis/linkerScripts</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-    </ListValues>
-  </armgcc.linker.libraries.LibrarySearchPaths>
-  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam4cm/gcc/sam4cmp16c_0_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=USER_BOARD -Dprintf=iprintf -Dscanf=iscanf -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
-  <armgcc.preprocessingassembler.general.DefaultIncludePath>False</armgcc.preprocessingassembler.general.DefaultIncludePath>
-  <armgcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>../common/applications/user_application/user_board/config</Value>
-      <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/preprocessor</Value>
-      <Value>../src/config</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/header_files</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/common/boards/user_board</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/common/services/storage/ctrl_access</Value>
-      <Value>../src/ASF/sam/drivers/chipid</Value>
-      <Value>../src/ASF/sam/drivers/cmcc</Value>
-      <Value>../src/ASF/sam/drivers/ebi/smc</Value>
-      <Value>../src/ASF/sam/drivers/efc</Value>
-      <Value>../src/ASF/sam/drivers/gpbr</Value>
-      <Value>../src/ASF/sam/drivers/icm</Value>
-      <Value>../src/ASF/sam/drivers/ipc</Value>
-      <Value>../src/ASF/sam/drivers/matrix</Value>
-      <Value>../src/ASF/sam/drivers/pdc</Value>
-      <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
-      <Value>../src/ASF/sam/drivers/pio</Value>
-      <Value>../src/ASF/sam/drivers/pmc</Value>
-      <Value>../src/ASF/sam/drivers/rstc</Value>
-      <Value>../src/ASF/sam/drivers/rtt</Value>
-      <Value>../src/ASF/sam/drivers/supc</Value>
-      <Value>../src/ASF/sam/drivers/tc</Value>
-      <Value>../src/ASF/sam/drivers/uart</Value>
-      <Value>../src/ASF/sam/services/flash_efc</Value>
-      <Value>../src/ASF/sam/services/plc/buart_if</Value>
-      <Value>../src/ASF/sam/services/plc/busart_if</Value>
-      <Value>../src/ASF/sam/services/plc/pcrc</Value>
-      <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
-      <Value>../src/ASF/sam/services/plc/usi</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
-      <Value>../src/ASF/common/services/clock</Value>
-      <Value>../src/ASF/common/services/delay</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src/ASF/common/services/serial/sam_uart</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/common/services/sleepmgr</Value>
-      <Value>../src/ASF/common/services/spi/sam_spi</Value>
-      <Value>../src/ASF/common/services/spi</Value>
-      <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
-      <Value>../src/ASF/common/services/twi</Value>
-      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/sam/drivers/adc</Value>
-      <Value>../src/ASF/sam/drivers/spi</Value>
-      <Value>../src/ASF/sam/drivers/twi</Value>
-      <Value>../src/ASF/sam/drivers/usart</Value>
-      <Value>../src/ASF/sam/drivers/wdt</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam/drivers/rtc</Value>
-    </ListValues>
-  </armgcc.preprocessingassembler.general.IncludePaths>
-</ArmGcc>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>scanf=iscanf</Value>
+            <Value>BOARD=USER_BOARD</Value>
+            <Value>ARM_MATH_CM4=true</Value>
+            <Value>printf=iprintf</Value>
+            <Value>__FREERTOS__</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../common/applications/user_application/user_board/config</Value>
+            <Value>../src/ASF/sam/utils</Value>
+            <Value>../src/ASF/sam/utils/preprocessor</Value>
+            <Value>../src/config</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+            <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
+            <Value>../src/ASF/sam/utils/header_files</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/ASF/common/boards/user_board</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+            <Value>../src/ASF/common/services/storage/ctrl_access</Value>
+            <Value>../src/ASF/sam/drivers/chipid</Value>
+            <Value>../src/ASF/sam/drivers/cmcc</Value>
+            <Value>../src/ASF/sam/drivers/ebi/smc</Value>
+            <Value>../src/ASF/sam/drivers/efc</Value>
+            <Value>../src/ASF/sam/drivers/gpbr</Value>
+            <Value>../src/ASF/sam/drivers/icm</Value>
+            <Value>../src/ASF/sam/drivers/ipc</Value>
+            <Value>../src/ASF/sam/drivers/matrix</Value>
+            <Value>../src/ASF/sam/drivers/pdc</Value>
+            <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
+            <Value>../src/ASF/sam/drivers/pio</Value>
+            <Value>../src/ASF/sam/drivers/pmc</Value>
+            <Value>../src/ASF/sam/drivers/rstc</Value>
+            <Value>../src/ASF/sam/drivers/rtt</Value>
+            <Value>../src/ASF/sam/drivers/supc</Value>
+            <Value>../src/ASF/sam/drivers/tc</Value>
+            <Value>../src/ASF/sam/drivers/uart</Value>
+            <Value>../src/ASF/sam/services/flash_efc</Value>
+            <Value>../src/ASF/sam/services/plc/buart_if</Value>
+            <Value>../src/ASF/sam/services/plc/busart_if</Value>
+            <Value>../src/ASF/sam/services/plc/pcrc</Value>
+            <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
+            <Value>../src/ASF/sam/services/plc/usi</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
+            <Value>../src/ASF/common/services/clock</Value>
+            <Value>../src/ASF/common/services/delay</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src/ASF/common/services/serial/sam_uart</Value>
+            <Value>../src/ASF/common/services/serial</Value>
+            <Value>../src/ASF/common/services/sleepmgr</Value>
+            <Value>../src/ASF/common/services/spi/sam_spi</Value>
+            <Value>../src/ASF/common/services/spi</Value>
+            <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
+            <Value>../src/ASF/common/services/twi</Value>
+            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+            <Value>../src/ASF/sam/drivers/adc</Value>
+            <Value>../src/ASF/sam/drivers/spi</Value>
+            <Value>../src/ASF/sam/drivers/twi</Value>
+            <Value>../src/ASF/sam/drivers/usart</Value>
+            <Value>../src/ASF/sam/drivers/wdt</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
+            <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+            <Value>../src/ASF/sam/drivers/rtc</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+        <armgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libarm_cortexM4l_math</Value>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcc.linker.libraries.Libraries>
+        <armgcc.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+          </ListValues>
+        </armgcc.linker.libraries.LibrarySearchPaths>
+        <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+        <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam4cm/gcc/sam4cmp16c_0_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+        <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=USER_BOARD -Dprintf=iprintf -Dscanf=iscanf -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
+        <armgcc.preprocessingassembler.general.DefaultIncludePath>False</armgcc.preprocessingassembler.general.DefaultIncludePath>
+        <armgcc.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>../common/applications/user_application/user_board/config</Value>
+            <Value>../src/ASF/sam/utils</Value>
+            <Value>../src/ASF/sam/utils/preprocessor</Value>
+            <Value>../src/config</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+            <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
+            <Value>../src/ASF/sam/utils/header_files</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/ASF/common/boards/user_board</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+            <Value>../src/ASF/common/services/storage/ctrl_access</Value>
+            <Value>../src/ASF/sam/drivers/chipid</Value>
+            <Value>../src/ASF/sam/drivers/cmcc</Value>
+            <Value>../src/ASF/sam/drivers/ebi/smc</Value>
+            <Value>../src/ASF/sam/drivers/efc</Value>
+            <Value>../src/ASF/sam/drivers/gpbr</Value>
+            <Value>../src/ASF/sam/drivers/icm</Value>
+            <Value>../src/ASF/sam/drivers/ipc</Value>
+            <Value>../src/ASF/sam/drivers/matrix</Value>
+            <Value>../src/ASF/sam/drivers/pdc</Value>
+            <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
+            <Value>../src/ASF/sam/drivers/pio</Value>
+            <Value>../src/ASF/sam/drivers/pmc</Value>
+            <Value>../src/ASF/sam/drivers/rstc</Value>
+            <Value>../src/ASF/sam/drivers/rtt</Value>
+            <Value>../src/ASF/sam/drivers/supc</Value>
+            <Value>../src/ASF/sam/drivers/tc</Value>
+            <Value>../src/ASF/sam/drivers/uart</Value>
+            <Value>../src/ASF/sam/services/flash_efc</Value>
+            <Value>../src/ASF/sam/services/plc/buart_if</Value>
+            <Value>../src/ASF/sam/services/plc/busart_if</Value>
+            <Value>../src/ASF/sam/services/plc/pcrc</Value>
+            <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
+            <Value>../src/ASF/sam/services/plc/usi</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
+            <Value>../src/ASF/common/services/clock</Value>
+            <Value>../src/ASF/common/services/delay</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src/ASF/common/services/serial/sam_uart</Value>
+            <Value>../src/ASF/common/services/serial</Value>
+            <Value>../src/ASF/common/services/sleepmgr</Value>
+            <Value>../src/ASF/common/services/spi/sam_spi</Value>
+            <Value>../src/ASF/common/services/spi</Value>
+            <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
+            <Value>../src/ASF/common/services/twi</Value>
+            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+            <Value>../src/ASF/sam/drivers/adc</Value>
+            <Value>../src/ASF/sam/drivers/spi</Value>
+            <Value>../src/ASF/sam/drivers/twi</Value>
+            <Value>../src/ASF/sam/drivers/usart</Value>
+            <Value>../src/ASF/sam/drivers/wdt</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
+            <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+            <Value>../src/ASF/sam/drivers/rtc</Value>
+          </ListValues>
+        </armgcc.preprocessingassembler.general.IncludePaths>
+      </ArmGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGcc>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>DEBUG</Value>
-      <Value>scanf=iscanf</Value>
-      <Value>BOARD=USER_BOARD</Value>
-      <Value>ARM_MATH_CM4=true</Value>
-      <Value>printf=iprintf</Value>
-      <Value>__FREERTOS__</Value>
-      <Value>ENABLE_CACHE</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>../common/applications/user_application/user_board/config</Value>
-      <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/preprocessor</Value>
-      <Value>../src/config</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/header_files</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/common/boards/user_board</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/common/services/storage/ctrl_access</Value>
-      <Value>../src/ASF/sam/drivers/chipid</Value>
-      <Value>../src/ASF/sam/drivers/cmcc</Value>
-      <Value>../src/ASF/sam/drivers/ebi/smc</Value>
-      <Value>../src/ASF/sam/drivers/efc</Value>
-      <Value>../src/ASF/sam/drivers/gpbr</Value>
-      <Value>../src/ASF/sam/drivers/icm</Value>
-      <Value>../src/ASF/sam/drivers/ipc</Value>
-      <Value>../src/ASF/sam/drivers/matrix</Value>
-      <Value>../src/ASF/sam/drivers/pdc</Value>
-      <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
-      <Value>../src/ASF/sam/drivers/pio</Value>
-      <Value>../src/ASF/sam/drivers/pmc</Value>
-      <Value>../src/ASF/sam/drivers/rstc</Value>
-      <Value>../src/ASF/sam/drivers/rtt</Value>
-      <Value>../src/ASF/sam/drivers/supc</Value>
-      <Value>../src/ASF/sam/drivers/tc</Value>
-      <Value>../src/ASF/sam/drivers/uart</Value>
-      <Value>../src/ASF/sam/services/flash_efc</Value>
-      <Value>../src/ASF/sam/services/plc/buart_if</Value>
-      <Value>../src/ASF/sam/services/plc/busart_if</Value>
-      <Value>../src/ASF/sam/services/plc/pcrc</Value>
-      <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
-      <Value>../src/ASF/sam/services/plc/usi</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
-      <Value>../src/ASF/common/services/clock</Value>
-      <Value>../src/ASF/common/services/delay</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src/ASF/common/services/serial/sam_uart</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/common/services/sleepmgr</Value>
-      <Value>../src/ASF/common/services/spi/sam_spi</Value>
-      <Value>../src/ASF/common/services/spi</Value>
-      <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
-      <Value>../src/ASF/common/services/twi</Value>
-      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/sam/drivers/adc</Value>
-      <Value>../src/ASF/sam/drivers/spi</Value>
-      <Value>../src/ASF/sam/drivers/twi</Value>
-      <Value>../src/ASF/sam/drivers/usart</Value>
-      <Value>../src/ASF/sam/drivers/wdt</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam/drivers/rtc</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize more (-O2)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.PrepareDataForGarbageCollection>True</armgcc.compiler.optimization.PrepareDataForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-  <armgcc.compiler.warnings.InhibitAllWarnings>True</armgcc.compiler.warnings.InhibitAllWarnings>
-  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
-  <armgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libarm_cortexM4l_math</Value>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>../cmsis/linkerScripts</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-    </ListValues>
-  </armgcc.linker.libraries.LibrarySearchPaths>
-  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-  <armgcc.linker.memorysettings.ExternalRAM />
-  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam4cm/gcc/sam4cmp16c_0_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
-  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=USER_BOARD -Dprintf=iprintf -Dscanf=iscanf -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
-  <armgcc.preprocessingassembler.general.DefaultIncludePath>False</armgcc.preprocessingassembler.general.DefaultIncludePath>
-  <armgcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>../common/applications/user_application/user_board/config</Value>
-      <Value>../src/ASF/sam/utils</Value>
-      <Value>../src/ASF/sam/utils/preprocessor</Value>
-      <Value>../src/config</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
-      <Value>../src/ASF/sam/utils/header_files</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/common/boards/user_board</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/common/services/storage/ctrl_access</Value>
-      <Value>../src/ASF/sam/drivers/chipid</Value>
-      <Value>../src/ASF/sam/drivers/cmcc</Value>
-      <Value>../src/ASF/sam/drivers/ebi/smc</Value>
-      <Value>../src/ASF/sam/drivers/efc</Value>
-      <Value>../src/ASF/sam/drivers/gpbr</Value>
-      <Value>../src/ASF/sam/drivers/icm</Value>
-      <Value>../src/ASF/sam/drivers/ipc</Value>
-      <Value>../src/ASF/sam/drivers/matrix</Value>
-      <Value>../src/ASF/sam/drivers/pdc</Value>
-      <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
-      <Value>../src/ASF/sam/drivers/pio</Value>
-      <Value>../src/ASF/sam/drivers/pmc</Value>
-      <Value>../src/ASF/sam/drivers/rstc</Value>
-      <Value>../src/ASF/sam/drivers/rtt</Value>
-      <Value>../src/ASF/sam/drivers/supc</Value>
-      <Value>../src/ASF/sam/drivers/tc</Value>
-      <Value>../src/ASF/sam/drivers/uart</Value>
-      <Value>../src/ASF/sam/services/flash_efc</Value>
-      <Value>../src/ASF/sam/services/plc/buart_if</Value>
-      <Value>../src/ASF/sam/services/plc/busart_if</Value>
-      <Value>../src/ASF/sam/services/plc/pcrc</Value>
-      <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
-      <Value>../src/ASF/sam/services/plc/usi</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
-      <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
-      <Value>../src/ASF/common/services/clock</Value>
-      <Value>../src/ASF/common/services/delay</Value>
-      <Value>../src/ASF/common/services/gpio</Value>
-      <Value>../src/ASF/common/services/ioport</Value>
-      <Value>../src/ASF/common/services/serial/sam_uart</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/common/services/sleepmgr</Value>
-      <Value>../src/ASF/common/services/spi/sam_spi</Value>
-      <Value>../src/ASF/common/services/spi</Value>
-      <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
-      <Value>../src/ASF/common/services/twi</Value>
-      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/sam/drivers/adc</Value>
-      <Value>../src/ASF/sam/drivers/spi</Value>
-      <Value>../src/ASF/sam/drivers/twi</Value>
-      <Value>../src/ASF/sam/drivers/usart</Value>
-      <Value>../src/ASF/sam/drivers/wdt</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
-      <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam/drivers/rtc</Value>
-    </ListValues>
-  </armgcc.preprocessingassembler.general.IncludePaths>
-  <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
-</ArmGcc>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>scanf=iscanf</Value>
+            <Value>BOARD=USER_BOARD</Value>
+            <Value>ARM_MATH_CM4=true</Value>
+            <Value>printf=iprintf</Value>
+            <Value>__FREERTOS__</Value>
+            <Value>ENABLE_CACHE</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../common/applications/user_application/user_board/config</Value>
+            <Value>../src/ASF/sam/utils</Value>
+            <Value>../src/ASF/sam/utils/preprocessor</Value>
+            <Value>../src/config</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+            <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
+            <Value>../src/ASF/sam/utils/header_files</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/ASF/common/boards/user_board</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+            <Value>../src/ASF/common/services/storage/ctrl_access</Value>
+            <Value>../src/ASF/sam/drivers/chipid</Value>
+            <Value>../src/ASF/sam/drivers/cmcc</Value>
+            <Value>../src/ASF/sam/drivers/ebi/smc</Value>
+            <Value>../src/ASF/sam/drivers/efc</Value>
+            <Value>../src/ASF/sam/drivers/gpbr</Value>
+            <Value>../src/ASF/sam/drivers/icm</Value>
+            <Value>../src/ASF/sam/drivers/ipc</Value>
+            <Value>../src/ASF/sam/drivers/matrix</Value>
+            <Value>../src/ASF/sam/drivers/pdc</Value>
+            <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
+            <Value>../src/ASF/sam/drivers/pio</Value>
+            <Value>../src/ASF/sam/drivers/pmc</Value>
+            <Value>../src/ASF/sam/drivers/rstc</Value>
+            <Value>../src/ASF/sam/drivers/rtt</Value>
+            <Value>../src/ASF/sam/drivers/supc</Value>
+            <Value>../src/ASF/sam/drivers/tc</Value>
+            <Value>../src/ASF/sam/drivers/uart</Value>
+            <Value>../src/ASF/sam/services/flash_efc</Value>
+            <Value>../src/ASF/sam/services/plc/buart_if</Value>
+            <Value>../src/ASF/sam/services/plc/busart_if</Value>
+            <Value>../src/ASF/sam/services/plc/pcrc</Value>
+            <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
+            <Value>../src/ASF/sam/services/plc/usi</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
+            <Value>../src/ASF/common/services/clock</Value>
+            <Value>../src/ASF/common/services/delay</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src/ASF/common/services/serial/sam_uart</Value>
+            <Value>../src/ASF/common/services/serial</Value>
+            <Value>../src/ASF/common/services/sleepmgr</Value>
+            <Value>../src/ASF/common/services/spi/sam_spi</Value>
+            <Value>../src/ASF/common/services/spi</Value>
+            <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
+            <Value>../src/ASF/common/services/twi</Value>
+            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+            <Value>../src/ASF/sam/drivers/adc</Value>
+            <Value>../src/ASF/sam/drivers/spi</Value>
+            <Value>../src/ASF/sam/drivers/twi</Value>
+            <Value>../src/ASF/sam/drivers/usart</Value>
+            <Value>../src/ASF/sam/drivers/wdt</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
+            <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+            <Value>../src/ASF/sam/drivers/rtc</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.InhibitAllWarnings>True</armgcc.compiler.warnings.InhibitAllWarnings>
+        <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+        <armgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libarm_cortexM4l_math</Value>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcc.linker.libraries.Libraries>
+        <armgcc.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+          </ListValues>
+        </armgcc.linker.libraries.LibrarySearchPaths>
+        <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+        <armgcc.linker.memorysettings.ExternalRAM />
+        <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam4cm/gcc/sam4cmp16c_0_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+        <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+        <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM4=true -DBOARD=USER_BOARD -Dprintf=iprintf -Dscanf=iscanf -D__FREERTOS__</armgcc.preprocessingassembler.general.AssemblerFlags>
+        <armgcc.preprocessingassembler.general.DefaultIncludePath>False</armgcc.preprocessingassembler.general.DefaultIncludePath>
+        <armgcc.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>../common/applications/user_application/user_board/config</Value>
+            <Value>../src/ASF/sam/utils</Value>
+            <Value>../src/ASF/sam/utils/preprocessor</Value>
+            <Value>../src/config</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+            <Value>../src/ASF/sam/utils/cmsis/sam4cm/include</Value>
+            <Value>../src/ASF/sam/utils/header_files</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/ASF/common/boards/user_board</Value>
+            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+            <Value>../src/ASF/common/services/storage/ctrl_access</Value>
+            <Value>../src/ASF/sam/drivers/chipid</Value>
+            <Value>../src/ASF/sam/drivers/cmcc</Value>
+            <Value>../src/ASF/sam/drivers/ebi/smc</Value>
+            <Value>../src/ASF/sam/drivers/efc</Value>
+            <Value>../src/ASF/sam/drivers/gpbr</Value>
+            <Value>../src/ASF/sam/drivers/icm</Value>
+            <Value>../src/ASF/sam/drivers/ipc</Value>
+            <Value>../src/ASF/sam/drivers/matrix</Value>
+            <Value>../src/ASF/sam/drivers/pdc</Value>
+            <Value>../src/ASF/sam/drivers/pdc/pdc_uart_example</Value>
+            <Value>../src/ASF/sam/drivers/pio</Value>
+            <Value>../src/ASF/sam/drivers/pmc</Value>
+            <Value>../src/ASF/sam/drivers/rstc</Value>
+            <Value>../src/ASF/sam/drivers/rtt</Value>
+            <Value>../src/ASF/sam/drivers/supc</Value>
+            <Value>../src/ASF/sam/drivers/tc</Value>
+            <Value>../src/ASF/sam/drivers/uart</Value>
+            <Value>../src/ASF/sam/services/flash_efc</Value>
+            <Value>../src/ASF/sam/services/plc/buart_if</Value>
+            <Value>../src/ASF/sam/services/plc/busart_if</Value>
+            <Value>../src/ASF/sam/services/plc/pcrc</Value>
+            <Value>../src/ASF/sam/services/plc/pplc_if/atpl230</Value>
+            <Value>../src/ASF/sam/services/plc/usi</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/coupling_config</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/include</Value>
+            <Value>../src/ASF/thirdparty/prime/phy/atpl230/addons/serial_if</Value>
+            <Value>../src/ASF/common/services/clock</Value>
+            <Value>../src/ASF/common/services/delay</Value>
+            <Value>../src/ASF/common/services/gpio</Value>
+            <Value>../src/ASF/common/services/ioport</Value>
+            <Value>../src/ASF/common/services/serial/sam_uart</Value>
+            <Value>../src/ASF/common/services/serial</Value>
+            <Value>../src/ASF/common/services/sleepmgr</Value>
+            <Value>../src/ASF/common/services/spi/sam_spi</Value>
+            <Value>../src/ASF/common/services/spi</Value>
+            <Value>../src/ASF/common/services/spi/sam_usart_spi</Value>
+            <Value>../src/ASF/common/services/twi</Value>
+            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+            <Value>../src/ASF/sam/drivers/adc</Value>
+            <Value>../src/ASF/sam/drivers/spi</Value>
+            <Value>../src/ASF/sam/drivers/twi</Value>
+            <Value>../src/ASF/sam/drivers/usart</Value>
+            <Value>../src/ASF/sam/drivers/wdt</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/include</Value>
+            <Value>../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam</Value>
+            <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+            <Value>../src/ASF/sam/drivers/rtc</Value>
+          </ListValues>
+        </armgcc.preprocessingassembler.general.IncludePaths>
+        <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+      </ArmGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
@@ -675,43 +669,16 @@
     <Compile Include="src\ASF\sam\drivers\ipc\ipc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\ASF\sam\drivers\twi\twi.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\ASF\sam\drivers\twi\twi.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\c1219.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\c1219.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\config_meter.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\i2c.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\i2c.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\lpwr.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\lpwr.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\rst.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\rst.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\rx8900.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\rx8900.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\watchdog.c">
@@ -735,6 +702,12 @@
     <Compile Include="src\ASF\sam\drivers\rtc\rtc.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\sam\drivers\twi\twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\twi\twi.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\sam\drivers\uart\uart.c">
       <SubType>compile</SubType>
     </Compile>
@@ -757,6 +730,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\eeprom.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\eeprom_cfg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\evnt.c">
@@ -783,6 +759,9 @@
     <Compile Include="src\led.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\led_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\lp.c">
       <SubType>compile</SubType>
     </Compile>
@@ -795,22 +774,31 @@
     <Compile Include="src\metrology.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\sm.c">
+    <Compile Include="src\mm.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\sm.h">
+    <Compile Include="src\mm.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\op.c">
+    <Compile Include="src\mm_cfg.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\op.h">
+    <Compile Include="src\opf.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\nic.c">
+    <Compile Include="src\opf.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\nic.h">
+    <Compile Include="src\opf_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\opr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\opr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\opr_cfg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\pfail.c">
@@ -823,6 +811,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\regs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\relay.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\relay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\relay_cfg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\rtc_driver.c">
@@ -1264,6 +1261,12 @@
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\sam\drivers\pio\pio.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam\drivers\pio\pio_handler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\pio\pio_handler.h">
       <SubType>compile</SubType>
     </None>
     <Compile Include="src\ASF\sam\drivers\pmc\pmc.c">
